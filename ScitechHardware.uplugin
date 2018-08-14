@@ -1,0 +1,25 @@
+{
+	"FileVersion" : 3,
+	"Version" : 1,
+	"VersionName" : "1.0",
+	"FriendlyName" : "Scitech Hardware",
+	"Description" : "Scitech Serial I/O Plugin",
+	"Category" : "Scitech",
+	"CreatedBy" : "Scitech Discovery Centre",
+	"CreatedByURL" : "http://www.scitech.org.au",
+	"DocsURL" : "",
+	"MarketplaceURL" : "",
+	"SupportURL" : "",
+	"EnabledByDefault" : false,
+	"CanContainContent" : false,
+	"IsBetaVersion" : true,
+	"Installed" : false,
+	"Modules" :
+	[
+    {
+      "Name": "ScitechHardware",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+	]
+}

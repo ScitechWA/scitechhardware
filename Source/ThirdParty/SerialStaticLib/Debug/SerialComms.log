@@ -1,0 +1,5 @@
+﻿  stdafx.cpp
+  SerialComms.cpp
+c:\dev\infrastructure\plugindevproject\plugins\scitechhardware\source\thirdparty\serialstaticlib\serialcomms.cpp(188): warning C4018: '<': signed/unsigned mismatch
+c:\dev\infrastructure\plugindevproject\plugins\scitechhardware\source\thirdparty\serialstaticlib\serialcomms.cpp(203): warning C4018: '<': signed/unsigned mismatch
+  SerialComms.vcxproj -> C:\Dev\Infrastructure\plugindevproject\Plugins\ScitechHardware\Source\ThirdParty\SerialStaticLib\Debug\SerialComms.lib
