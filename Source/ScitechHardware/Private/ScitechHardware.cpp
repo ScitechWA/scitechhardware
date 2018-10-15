@@ -292,19 +292,19 @@ void FScitechHardware::ScitechHardwareTick(float DeltaTime)
 	}
 }
 
-bool EmitKeyUpEventForKey(FKey key, int32 user, bool repeat)
+bool EmitHardwareKeyUpEventForKey(FKey key, int32 user, bool repeat)
 {
 	FKeyEvent KeyEvent(key, FSlateApplication::Get().GetModifierKeys(), user, repeat, 0, 0);
 	return FSlateApplication::Get().ProcessKeyUpEvent(KeyEvent);
 }
 
-bool EmitKeyDownEventForKey(FKey key, int32 user, bool repeat)
+bool EmitHardwareKeyDownEventForKey(FKey key, int32 user, bool repeat)
 {
 	FKeyEvent KeyEvent(key, FSlateApplication::Get().GetModifierKeys(), user, repeat, 0, 0);
 	return FSlateApplication::Get().ProcessKeyDownEvent(KeyEvent);
 }
 
-bool EmitAnalogInputEventForKey(FKey key, float value, int32 user, bool repeat)
+bool EmitHardwareAnalogInputEventForKey(FKey key, float value, int32 user, bool repeat)
 {
 	FAnalogInputEvent AnalogInputEvent(key, FSlateApplication::Get().GetModifierKeys(), user, repeat, 0, 0, value);
 	return FSlateApplication::Get().ProcessAnalogInputEvent(AnalogInputEvent);
@@ -318,304 +318,304 @@ void FScitechHardware::DelegateTick(float DeltaTime)
 	if ((scitechHardwareDelegate->currentState->DigitalInput1) && (!scitechHardwareDelegate->previousState->DigitalInput1))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(1);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput1, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput1, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput2) && (!scitechHardwareDelegate->previousState->DigitalInput2))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(2);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput2, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput2, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput3) && (!scitechHardwareDelegate->previousState->DigitalInput3))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(3);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput3, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput3, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput4) && (!scitechHardwareDelegate->previousState->DigitalInput4))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(4);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput4, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput4, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput5) && (!scitechHardwareDelegate->previousState->DigitalInput5))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(5);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput5, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput5, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput6) && (!scitechHardwareDelegate->previousState->DigitalInput6))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(6);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput6, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput6, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput7) && (!scitechHardwareDelegate->previousState->DigitalInput7))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(7);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput7, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput7, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput8) && (!scitechHardwareDelegate->previousState->DigitalInput8))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(8);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput8, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput8, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput9) && (!scitechHardwareDelegate->previousState->DigitalInput9))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(9);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput9, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput9, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput10) && (!scitechHardwareDelegate->previousState->DigitalInput10))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(10);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput10, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput10, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput11) && (!scitechHardwareDelegate->previousState->DigitalInput11))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(11);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput11, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput11, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput12) && (!scitechHardwareDelegate->previousState->DigitalInput12))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(12);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput12, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput12, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput13) && (!scitechHardwareDelegate->previousState->DigitalInput13))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(13);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput13, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput13, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput14) && (!scitechHardwareDelegate->previousState->DigitalInput14))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(14);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput14, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput14, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput15) && (!scitechHardwareDelegate->previousState->DigitalInput15))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(15);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput15, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput15, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput16) && (!scitechHardwareDelegate->previousState->DigitalInput16))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(16);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput16, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput16, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput17) && (!scitechHardwareDelegate->previousState->DigitalInput17))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(17);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput17, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput17, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput18) && (!scitechHardwareDelegate->previousState->DigitalInput18))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(18);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput18, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput18, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput19) && (!scitechHardwareDelegate->previousState->DigitalInput19))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(19);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput19, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput19, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput20) && (!scitechHardwareDelegate->previousState->DigitalInput20))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(20);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput20, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput20, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput21) && (!scitechHardwareDelegate->previousState->DigitalInput21))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(21);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput21, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput21, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput22) && (!scitechHardwareDelegate->previousState->DigitalInput22))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(22);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput22, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput22, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput23) && (!scitechHardwareDelegate->previousState->DigitalInput23))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(23);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput23, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput23, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput24) && (!scitechHardwareDelegate->previousState->DigitalInput24))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(24);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput24, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput24, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput25) && (!scitechHardwareDelegate->previousState->DigitalInput25))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(25);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput25, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput25, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput26) && (!scitechHardwareDelegate->previousState->DigitalInput26))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(26);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput26, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput26, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput27) && (!scitechHardwareDelegate->previousState->DigitalInput27))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(27);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput27, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput27, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput28) && (!scitechHardwareDelegate->previousState->DigitalInput28))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(28);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput28, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput28, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput29) && (!scitechHardwareDelegate->previousState->DigitalInput29))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(29);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput29, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput29, 0, 0);
 	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput30) && (!scitechHardwareDelegate->previousState->DigitalInput30))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(30);
-		EmitKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput30, 0, 0);
+		EmitHardwareKeyDownEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput30, 0, 0);
 	}
 
 	// Digital Up Events
 	if ((scitechHardwareDelegate->previousState->DigitalInput1) && (!scitechHardwareDelegate->currentState->DigitalInput1))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(1);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput1, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput1, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput2) && (!scitechHardwareDelegate->currentState->DigitalInput2))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(2);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput2, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput2, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput3) && (!scitechHardwareDelegate->currentState->DigitalInput3))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(3);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput3, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput3, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput4) && (!scitechHardwareDelegate->currentState->DigitalInput4))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(4);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput4, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput4, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput5) && (!scitechHardwareDelegate->currentState->DigitalInput5))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(5);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput5, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput5, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput6) && (!scitechHardwareDelegate->currentState->DigitalInput6))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(6);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput6, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput6, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput7) && (!scitechHardwareDelegate->currentState->DigitalInput7))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(7);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput7, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput7, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput8) && (!scitechHardwareDelegate->currentState->DigitalInput8))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(8);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput8, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput8, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput9) && (!scitechHardwareDelegate->currentState->DigitalInput9))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(9);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput9, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput9, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput10) && (!scitechHardwareDelegate->currentState->DigitalInput10))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(10);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput10, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput10, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput11) && (!scitechHardwareDelegate->currentState->DigitalInput11))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(11);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput11, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput11, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput12) && (!scitechHardwareDelegate->currentState->DigitalInput12))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(12);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput12, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput12, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput13) && (!scitechHardwareDelegate->currentState->DigitalInput13))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(13);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput13, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput13, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput14) && (!scitechHardwareDelegate->currentState->DigitalInput14))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(14);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput14, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput14, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput15) && (!scitechHardwareDelegate->currentState->DigitalInput15))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(15);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput15, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput15, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput16) && (!scitechHardwareDelegate->currentState->DigitalInput16))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(16);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput16, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput16, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput17) && (!scitechHardwareDelegate->currentState->DigitalInput17))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(17);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput17, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput17, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput18) && (!scitechHardwareDelegate->currentState->DigitalInput18))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(18);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput18, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput18, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput19) && (!scitechHardwareDelegate->currentState->DigitalInput19))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(19);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput19, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput19, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput20) && (!scitechHardwareDelegate->currentState->DigitalInput20))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(20);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput20, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput20, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput21) && (!scitechHardwareDelegate->currentState->DigitalInput21))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(21);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput21, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput21, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput22) && (!scitechHardwareDelegate->currentState->DigitalInput22))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(22);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput22, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput22, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput23) && (!scitechHardwareDelegate->currentState->DigitalInput23))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(23);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput23, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput23, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput24) && (!scitechHardwareDelegate->currentState->DigitalInput24))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(24);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput24, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput24, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput25) && (!scitechHardwareDelegate->currentState->DigitalInput25))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(25);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput25, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput25, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput26) && (!scitechHardwareDelegate->currentState->DigitalInput26))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(26);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput26, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput26, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput27) && (!scitechHardwareDelegate->currentState->DigitalInput27))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(27);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput27, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput27, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput28) && (!scitechHardwareDelegate->currentState->DigitalInput28))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(28);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput28, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput28, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput29) && (!scitechHardwareDelegate->currentState->DigitalInput29))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(29);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput29, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput29, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput30) && (!scitechHardwareDelegate->currentState->DigitalInput30))
 	{
 		scitechHardwareDelegate->DigitalInputDeactivated(30);
-		EmitKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput30, 0, 0);
+		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput30, 0, 0);
 	}
 
 	// ANALOGUE EVENTS
@@ -623,61 +623,61 @@ void FScitechHardware::DelegateTick(float DeltaTime)
 	{
 		float value = (float)(scitechHardwareDelegate->currentState->AnalogueInput1) / 1000.0f;
 		scitechHardwareDelegate->AnalogueInputChanged(1, value);
-		EmitAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput1, value, 0, 0);
+		EmitHardwareAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput1, value, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->AnalogueInput2) != (scitechHardwareDelegate->currentState->AnalogueInput2))
 	{
 		float value = (float)(scitechHardwareDelegate->currentState->AnalogueInput2) / 1000.0f;
 		scitechHardwareDelegate->AnalogueInputChanged(2, value);
-		EmitAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput2, value, 0, 0);
+		EmitHardwareAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput2, value, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->AnalogueInput3) != (scitechHardwareDelegate->currentState->AnalogueInput3))
 	{
 		float value = (float)(scitechHardwareDelegate->currentState->AnalogueInput3) / 1000.0f;
 		scitechHardwareDelegate->AnalogueInputChanged(2, value);
-		EmitAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput3, value, 0, 0);
+		EmitHardwareAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput3, value, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->AnalogueInput4) != (scitechHardwareDelegate->currentState->AnalogueInput4))
 	{
 		float value = (float)(scitechHardwareDelegate->currentState->AnalogueInput4) / 1000.0f;
 		scitechHardwareDelegate->AnalogueInputChanged(2, value);
-		EmitAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput4, value, 0, 0);
+		EmitHardwareAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput4, value, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->AnalogueInput5) != (scitechHardwareDelegate->currentState->AnalogueInput5))
 	{
 		float value = (float)(scitechHardwareDelegate->currentState->AnalogueInput5) / 1000.0f;
 		scitechHardwareDelegate->AnalogueInputChanged(2, value);
-		EmitAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput5, value, 0, 0);
+		EmitHardwareAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput5, value, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->AnalogueInput6) != (scitechHardwareDelegate->currentState->AnalogueInput6))
 	{
 		float value = (float)(scitechHardwareDelegate->currentState->AnalogueInput6) / 1000.0f;
 		scitechHardwareDelegate->AnalogueInputChanged(2, value);
-		EmitAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput6, value, 0, 0);
+		EmitHardwareAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput6, value, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->AnalogueInput7) != (scitechHardwareDelegate->currentState->AnalogueInput7))
 	{
 		float value = (float)(scitechHardwareDelegate->currentState->AnalogueInput7) / 1000.0f;
 		scitechHardwareDelegate->AnalogueInputChanged(2, value);
-		EmitAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput7, value, 0, 0);
+		EmitHardwareAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput7, value, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->AnalogueInput8) != (scitechHardwareDelegate->currentState->AnalogueInput8))
 	{
 		float value = (float)(scitechHardwareDelegate->currentState->AnalogueInput8) / 1000.0f;
 		scitechHardwareDelegate->AnalogueInputChanged(2, value);
-		EmitAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput8, value, 0, 0);
+		EmitHardwareAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput8, value, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->AnalogueInput9) != (scitechHardwareDelegate->currentState->AnalogueInput9))
 	{
 		float value = (float)(scitechHardwareDelegate->currentState->AnalogueInput9) / 1000.0f;
 		scitechHardwareDelegate->AnalogueInputChanged(2, value);
-		EmitAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput9, value, 0, 0);
+		EmitHardwareAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput9, value, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->AnalogueInput10) != (scitechHardwareDelegate->currentState->AnalogueInput10))
 	{
 		float value = (float)(scitechHardwareDelegate->currentState->AnalogueInput10) / 1000.0f;
 		scitechHardwareDelegate->AnalogueInputChanged(2, value);
-		EmitAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput10, value, 0, 0);
+		EmitHardwareAnalogInputEventForKey(EKeysScitechHardware::ScitechHardwareAnalogueInput10, value, 0, 0);
 	}
 	Update();
 }
