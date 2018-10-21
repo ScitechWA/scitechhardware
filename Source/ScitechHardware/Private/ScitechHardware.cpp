@@ -14,7 +14,7 @@ THIRD_PARTY_INCLUDES_END
 class FScitechHardware : public IScitechHardware
 {
 private:
-	SerialPort * comPort;
+	
 
 public:
 	/** IModuleInterface implementation */
@@ -36,8 +36,13 @@ public:
 
 	void SetDelegate(ScitechHardwareDelegate* newDelegate);
 	void ScitechHardwareTick(float DeltaTime);
-private:
+protected:
+	UPROPERTY()
+	SerialPort * comPort;
+	UPROPERTY()
 	ScitechHardwareDelegate * scitechHardwareDelegate;
+private:
+	
 
 	void DelegateTick(float DeltaTime);
 };
@@ -109,7 +114,7 @@ void FScitechHardware::ShutdownModule()
 	UE_LOG(LogTemp, Log, TEXT("## Stopping Scitech Hardware... \n"));
 	UE_LOG(LogTemp, Log, TEXT("################################### \n"));
 
-	if (comPort != nullptr)
+	if (comPort != NULL)
 	{
 		if (comPort->isConnected())
 		{
@@ -312,9 +317,21 @@ bool EmitHardwareAnalogInputEventForKey(FKey key, float value, int32 user, bool 
 
 void FScitechHardware::DelegateTick(float DeltaTime)
 {
+	if (scitechHardwareDelegate == NULL) return;
+
 	scitechHardwareDelegate->UpdateStates();
 
 	// Digital Down Events
+	if (!IsValid(scitechHardwareDelegate->currentState))
+	{
+		UE_LOG(LogTemp, Log, TEXT("FScitechHardware::DelegateTick() currentState Invalid\n"));
+		return;
+	}
+	if (!IsValid(scitechHardwareDelegate->previousState))
+	{
+		UE_LOG(LogTemp, Log, TEXT("FScitechHardware::DelegateTick() previousState Invalid\n"));
+		return;
+	}
 	if ((scitechHardwareDelegate->currentState->DigitalInput1) && (!scitechHardwareDelegate->previousState->DigitalInput1))
 	{
 		scitechHardwareDelegate->DigitalInputActivated(1);
@@ -469,151 +486,181 @@ void FScitechHardware::DelegateTick(float DeltaTime)
 	// Digital Up Events
 	if ((scitechHardwareDelegate->previousState->DigitalInput1) && (!scitechHardwareDelegate->currentState->DigitalInput1))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 1 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(1);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput1, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput2) && (!scitechHardwareDelegate->currentState->DigitalInput2))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 2 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(2);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput2, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput3) && (!scitechHardwareDelegate->currentState->DigitalInput3))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 3 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(3);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput3, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput4) && (!scitechHardwareDelegate->currentState->DigitalInput4))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 4 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(4);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput4, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput5) && (!scitechHardwareDelegate->currentState->DigitalInput5))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 5 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(5);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput5, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput6) && (!scitechHardwareDelegate->currentState->DigitalInput6))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 6 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(6);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput6, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput7) && (!scitechHardwareDelegate->currentState->DigitalInput7))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 7 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(7);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput7, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput8) && (!scitechHardwareDelegate->currentState->DigitalInput8))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 8 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(8);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput8, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput9) && (!scitechHardwareDelegate->currentState->DigitalInput9))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 9 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(9);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput9, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput10) && (!scitechHardwareDelegate->currentState->DigitalInput10))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 10 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(10);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput10, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput11) && (!scitechHardwareDelegate->currentState->DigitalInput11))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 11 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(11);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput11, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput12) && (!scitechHardwareDelegate->currentState->DigitalInput12))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 12 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(12);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput12, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput13) && (!scitechHardwareDelegate->currentState->DigitalInput13))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 13 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(13);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput13, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput14) && (!scitechHardwareDelegate->currentState->DigitalInput14))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 14 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(14);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput14, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput15) && (!scitechHardwareDelegate->currentState->DigitalInput15))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 15 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(15);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput15, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput16) && (!scitechHardwareDelegate->currentState->DigitalInput16))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 16 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(16);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput16, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput17) && (!scitechHardwareDelegate->currentState->DigitalInput17))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 17 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(17);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput17, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput18) && (!scitechHardwareDelegate->currentState->DigitalInput18))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 18 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(18);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput18, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput19) && (!scitechHardwareDelegate->currentState->DigitalInput19))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 19 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(19);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput19, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput20) && (!scitechHardwareDelegate->currentState->DigitalInput20))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 20 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(20);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput20, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput21) && (!scitechHardwareDelegate->currentState->DigitalInput21))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 21 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(21);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput21, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput22) && (!scitechHardwareDelegate->currentState->DigitalInput22))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 22 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(22);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput22, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput23) && (!scitechHardwareDelegate->currentState->DigitalInput23))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 23 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(23);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput23, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput24) && (!scitechHardwareDelegate->currentState->DigitalInput24))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 24 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(24);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput24, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput25) && (!scitechHardwareDelegate->currentState->DigitalInput25))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 25 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(25);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput25, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput26) && (!scitechHardwareDelegate->currentState->DigitalInput26))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 26 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(26);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput26, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput27) && (!scitechHardwareDelegate->currentState->DigitalInput27))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 27 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(27);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput27, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput28) && (!scitechHardwareDelegate->currentState->DigitalInput28))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 28 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(28);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput28, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput29) && (!scitechHardwareDelegate->currentState->DigitalInput29))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 29 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(29);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput29, 0, 0);
 	}
 	if ((scitechHardwareDelegate->previousState->DigitalInput30) && (!scitechHardwareDelegate->currentState->DigitalInput30))
 	{
+		UE_LOG(LogTemp, Log, TEXT("Digital Input 30 Deactivating...\n"));
 		scitechHardwareDelegate->DigitalInputDeactivated(30);
 		EmitHardwareKeyUpEventForKey(EKeysScitechHardware::ScitechHardwareDigitalInput30, 0, 0);
 	}

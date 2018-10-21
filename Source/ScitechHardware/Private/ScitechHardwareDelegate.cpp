@@ -121,7 +121,9 @@ void ScitechHardwareDelegate::ScitechHardwareStartup()
 		SetInterfaceDelegate(validUObject);
 
 	previousState = NewObject<USerialCommsState>();
+	previousState->AddToRoot();
 	currentState = NewObject<USerialCommsState>();
+	currentState->AddToRoot();
 }
 
 /*
@@ -213,6 +215,17 @@ void ScitechHardwareDelegate::UpdateStates()
 	//currentState->DigitalInput1 
 	if (IScitechHardware::IsAvailable())
 	{
+		if (!IsValid(previousState))
+		{
+			UE_LOG(LogTemp, Log, TEXT("ScitechHardwareDelegate::UpdateStates() previousState Invalid\n"));
+			return;
+		}
+		if (!IsValid(currentState))
+		{
+			UE_LOG(LogTemp, Log, TEXT("ScitechHardwareDelegate::UpdateStates() currentState Invalid\n"));
+			return;
+		}
+
 		previousState->DigitalInput1 = currentState->DigitalInput1;
 		previousState->DigitalInput2 = currentState->DigitalInput2;
 		previousState->DigitalInput3 = currentState->DigitalInput3;

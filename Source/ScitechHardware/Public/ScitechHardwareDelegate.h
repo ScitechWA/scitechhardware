@@ -105,6 +105,7 @@ protected:
 
 	UPROPERTY()
 	USerialCommsState* previousState;
+	UPROPERTY()
 	USerialCommsState* currentState;
 
 private:
